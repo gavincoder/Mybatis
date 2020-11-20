@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+<!--
+        <setting name="localCacheScope" value="SESSION"/>
+-->
+        <!--1.开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/wincidb?useUnicode=true&amp;serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="mysql123"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--映射xml-->
+    <mappers>
+        <mapper resource="com/example/mybatis/cache/dao/mapper/TruckInfoMapper.xml"/>
+    </mappers>
+</configuration>
